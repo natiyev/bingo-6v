@@ -102,8 +102,8 @@ input.text:focus{outline:none;border-color:var(--a)}
 .hidden{display:none!important}
 
 /* slides */
-.slide{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 14px;min-height:62vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px;margin-bottom:12px}
-.slide h2{font-size:clamp(28px,5vw,60px);margin:0}
+.slide{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 14px;min-height:48vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px;margin-bottom:12px}
+.slide h2{font-size:clamp(26px,4.2vw,48px);margin:0}
 .slide p{font-size:clamp(19px,2.6vw,32px);margin:0;max-width:900px}
 .mg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:min(100%,320px)}
 .mc{aspect-ratio:4/3;border:3px solid var(--line);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:800;background:#fff}
@@ -112,7 +112,7 @@ input.text:focus{outline:none;border-color:var(--a)}
 .two{display:flex;gap:26px;flex-wrap:wrap;justify-content:center}.two .mg{width:min(42vw,230px)}.cap{font-weight:900;color:var(--muted)}
 .chips.wide{width:100%;max-width:900px}
 @media (min-width:700px){.chips.wide{grid-template-columns:repeat(11,1fr)}.mc{font-size:44px}.mg{width:360px}}
-.qr{width:min(64vw,340px);background:#fff;line-height:0}.qr svg{width:100%;height:auto;display:block}
+.qr{width:min(64vw,340px,34vh);background:#fff;line-height:0}.qr svg{width:100%;height:auto;display:block}
 .urlin{max-width:760px;font-size:clamp(18px,3vw,34px);text-align:center}
 .nav{display:flex;gap:10px;align-items:center}.nav .btn{width:auto;flex:1}
 .dots{display:flex;gap:6px}.dots span{width:11px;height:11px;border-radius:50%;background:var(--line)}.dots span.on{background:var(--a)}
@@ -143,7 +143,88 @@ h1{color:var(--a);font-weight:900;letter-spacing:-.2px}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 #confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:40}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
-</style>
+
+/* ===== ARCADE THEME ===== */
+:root{--bg:#0d0a2b;--card:#17134a;--ink:#f3f0ff;--muted:#a9a2e6;--line:#322c85;--a:#19e3ff;--a-soft:#12306e;--b:#ffcf33;--b-soft:#3b3010;--bad:#ff5d7a;--ok:#35f2a0}
+html,body{background:#0d0a2b;color:var(--ink)}
+body{background:radial-gradient(circle at 15% -10%,#3a1d8f 0,transparent 45%),radial-gradient(circle at 95% 105%,#0b5a8f 0,transparent 42%),#0d0a2b;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.6px);background-size:34px 34px;pointer-events:none;z-index:0}
+#app{position:relative;z-index:1}
+h1{color:var(--a);font-size:14px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 12px rgba(25,227,255,.7)}
+.snd{background:#0a0720;border:2px solid var(--line);border-radius:12px;font-size:20px;padding:6px 10px;color:var(--ink)}
+.logo{font-size:68px;font-weight:900;letter-spacing:6px;text-align:center;color:var(--b);text-shadow:0 5px 0 #a56a00,0 0 28px rgba(255,207,51,.75);margin:18px 0 0;animation:logoGlow 2.2s ease-in-out infinite}
+.logo-sub{text-align:center;color:var(--a);font-weight:800;letter-spacing:4px;text-transform:uppercase;margin-bottom:18px;text-shadow:0 0 10px rgba(25,227,255,.6)}
+@keyframes logoGlow{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.card{background:var(--card);border:2px solid var(--line);color:var(--ink);box-shadow:0 0 24px rgba(25,227,255,.08)}
+.muted{color:var(--muted)}
+label{color:var(--ink)}
+input.text{background:#0a0720;border:3px solid var(--line);color:var(--ink)}
+input.text:focus{border-color:var(--a);box-shadow:0 0 14px rgba(25,227,255,.5)}
+input.text::placeholder{color:#6a63c9}
+.btn{background:linear-gradient(#ffe066,#ffb703);color:#2a1a00;font-weight:900;letter-spacing:.6px;text-transform:uppercase;box-shadow:0 6px 0 #a56a00,0 0 20px rgba(255,207,51,.35)}
+.btn:active{transform:translateY(5px);box-shadow:0 1px 0 #a56a00,0 0 20px rgba(255,207,51,.35)}
+.btn.alt{background:linear-gradient(#6af2ff,#12b8d6);color:#032a33;box-shadow:0 6px 0 #0a7186,0 0 20px rgba(25,227,255,.35)}
+.btn.alt:active{box-shadow:0 1px 0 #0a7186,0 0 20px rgba(25,227,255,.35)}
+.btn.ghost{background:transparent;color:var(--a);border:2px solid var(--a);box-shadow:0 4px 0 #0b3f5a}
+.btn.ghost:active{box-shadow:0 0 0 #0b3f5a}
+.btn:disabled{background:#2c2766;color:#7b74c8;border-color:#3a3490;box-shadow:0 5px 0 #14103c}
+.btn.pulse{animation:btnpulse 1.3s ease-in-out infinite}
+@keyframes btnpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+.hud{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.pill{background:#0a0720;border:2px solid var(--line);border-radius:999px;padding:4px 12px;font-weight:900;font-size:14px;letter-spacing:.6px}
+.pill.lv{border-color:var(--a);color:var(--a)}.pill.xp{border-color:var(--b);color:var(--b)}.pill.cb{border-color:#ff7a59;color:#ff9b7a;animation:pulse 1s infinite}
+.stat{color:var(--ink)}
+.bar{background:#0a0720;border:2px solid var(--line);box-shadow:none}
+.bar i{background:linear-gradient(90deg,var(--a),var(--b))}
+.cell{background:#1c1760;border:3px solid #3e37a0;color:var(--ink);box-shadow:0 6px 0 #0a0720,inset 0 0 0 2px rgba(255,255,255,.06)}
+.cell.sel{border-color:var(--a);background:var(--a-soft);box-shadow:0 6px 0 #0a0720,0 0 18px rgba(25,227,255,.55)}
+.cell.empty{color:#6a63c9}
+.cell.done{background:radial-gradient(circle at 35% 28%,#fff3b0,#ffcf33 55%,#e09a00);color:#3a2300;border-color:#ffe38a;box-shadow:0 6px 0 #8a5a00,0 0 20px rgba(255,207,51,.6)}
+.cell.done::after{color:#3a2300;opacity:.8}
+.cell.line{background:radial-gradient(circle at 35% 28%,#e9fdff,#6af2ff 50%,#12b8d6);color:#032a33;border-color:#c9fbff;box-shadow:0 6px 0 #0a7186,0 0 26px rgba(25,227,255,.8)}
+.cell.line::after{color:#032a33}
+.chip{background:#1c1760;border:2px solid var(--a);color:var(--a);box-shadow:0 3px 0 #0a0720}
+.chip:disabled{background:#120f3a;border-color:#2b2679;color:#5b54b0;box-shadow:none}
+.fields .field{background:#0a0720;border:3px solid var(--line)}
+.field small{color:var(--muted)}
+.field b{color:var(--ink)}
+.field.act{border-color:var(--b);box-shadow:0 0 16px rgba(255,207,51,.4)}
+.field.act b{color:var(--b)}
+.key{background:#1c1760;border:2px solid #3e37a0;color:var(--ink);box-shadow:0 4px 0 #0a0720}
+.key:active{background:#2a2490;box-shadow:0 1px 0 #0a0720}
+.key.minus{background:#3b3010;border-color:var(--b);color:var(--b)}
+.key.del{background:#2a1650;border-color:#5a3aa0}
+.msg.ok{background:#0f3b32;color:var(--ok);border:2px solid var(--ok)}
+.msg.warn{background:#3b3010;color:var(--b);border:2px solid var(--b)}
+.msg.bad{background:#4a1230;color:var(--bad);border:2px solid var(--bad)}
+.ov{background:rgba(5,3,25,.82)}
+.modal{background:var(--card);color:var(--ink);border:3px solid var(--a);box-shadow:0 0 40px rgba(25,227,255,.45)}
+.modal.win{background:linear-gradient(160deg,#3a1d8f,#6a2fd0);border-color:var(--b);box-shadow:0 0 50px rgba(255,207,51,.55)}
+.win .big{color:var(--b);text-shadow:0 4px 0 #a56a00,0 0 28px rgba(255,207,51,.8)}
+.win .btn{background:linear-gradient(#ffe066,#ffb703);color:#2a1a00}
+.win.full{background:linear-gradient(160deg,#0b5a8f,#2a2490)}
+.win.full .btn{color:#2a1a00}
+/* teacher */
+.t-task{background:var(--card);border:3px solid var(--a);box-shadow:0 0 30px rgba(25,227,255,.25)}
+.t-num{color:var(--b);text-shadow:0 0 14px rgba(255,207,51,.6)}
+.t-lv{font-weight:900;letter-spacing:3px;font-size:16px;color:var(--a);margin-bottom:4px}
+.t-expr{color:#fff;text-shadow:0 0 18px rgba(25,227,255,.45)}
+.t-ans{color:var(--b);text-shadow:0 0 18px rgba(255,207,51,.7);animation:ansPop .35s cubic-bezier(.3,1.6,.5,1)}
+@keyframes ansPop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+.timer{height:14px;background:#0a0720;border:2px solid var(--line);border-radius:8px;overflow:hidden;margin:0 0 12px}
+.timer i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#ff5d7a,#ffcf33 45%,#35f2a0);transform-origin:left;animation:drain 30s linear forwards}
+@keyframes drain{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+.slide{background:var(--card);border:2px solid var(--line)}
+.slide h2{color:var(--b);text-shadow:0 0 16px rgba(255,207,51,.55)}
+.slide p{color:var(--ink)}
+.mc{background:#1c1760;border:3px solid #3e37a0;color:var(--ink);box-shadow:0 4px 0 #0a0720}
+.mc.d{background:radial-gradient(circle at 35% 28%,#fff3b0,#ffcf33 55%,#e09a00);color:#3a2300;border-color:#ffe38a}
+.mc.h{background:radial-gradient(circle at 35% 28%,#e9fdff,#6af2ff 50%,#12b8d6);color:#032a33;border-color:#c9fbff}
+.cap{color:var(--muted)}
+.dots span{background:var(--line)}.dots span.on{background:var(--b);box-shadow:0 0 10px rgba(255,207,51,.8)}
+.qr{background:#fff;padding:10px;border-radius:14px;box-shadow:0 0 30px rgba(25,227,255,.5)}
+.chips.wide .chip{border-color:var(--a)}
+@media (max-height:800px) and (min-width:700px){.slide{gap:8px;padding:8px 12px}.slide h2{font-size:clamp(24px,3.2vw,36px)}.slide p{font-size:clamp(16px,1.9vw,24px)}.mc{font-size:28px;aspect-ratio:5/3}.mg{width:240px}.two .mg{width:190px!important}.chip{padding:8px 0;font-size:17px}.msg{padding:8px 12px;font-size:17px;margin-bottom:6px}.t-expr{font-size:84px}}</style>
 </head>
 <body>
 <div id="app"></div>
@@ -2474,7 +2555,7 @@ const T = {
     toPlayer:"К странице ученика",
     sendQ:"Отправить ответ?", sendTxt:"Исправить после отправки нельзя. Каждую задачу можно сдать только один раз.", sendYes:"Отправить", edit:"Изменить",
     already:"Эта задача уже сдана. Каждую задачу можно сдать только один раз.",
-    needAns:"Введи ответ.", skip:"Пропустить", skipQ:"Пропустить задачу?", skipTxt:"Ответить на неё будет нельзя.", skipYes:"Да, пропустить", finished:"Все задачи закончились!",
+    needAns:"Введи ответ.", lv:"УРОВЕНЬ", xp:"ОЧКИ", gameName:"БИНГО", gameSub:"рациональные числа", press:"НАЧАТЬ ИГРУ", lvTxt:"Уровень", timeUp:"Время!", skip:"Пропустить", skipQ:"Пропустить задачу?", skipTxt:"Ответить на неё будет нельзя.", skipYes:"Да, пропустить", finished:"Все задачи закончились!",
     solvedList:"Решённые задачи (покажи решения в тетради)", ansIs:"Ответ"
   },
   kk:{
@@ -2498,7 +2579,7 @@ const T = {
     toPlayer:"Оқушы бетіне",
     sendQ:"Жауапты жіберейін бе?", sendTxt:"Жібергеннен кейін түзетуге болмайды. Әр есепті тек бір рет тапсыруға болады.", sendYes:"Жіберу", edit:"Өзгерту",
     already:"Бұл есеп бұрын тапсырылған. Әр есепті тек бір рет тапсыруға болады.",
-    needAns:"Жауабын енгіз.", skip:"Өткізу", skipQ:"Есепті өткізесің бе?", skipTxt:"Бұл есепке жауап бере алмайсың, келесіге өтесің.", skipYes:"Иә, өткізу", finished:"Барлық есеп аяқталды!",
+    needAns:"Жауабын енгіз.", lv:"ДЕҢГЕЙ", xp:"ҰПАЙ", gameName:"БИНГО", gameSub:"рационал сандар", press:"ОЙЫНДЫ БАСТАУ", lvTxt:"Деңгей", timeUp:"Уақыт!", skip:"Өткізу", skipQ:"Есепті өткізесің бе?", skipTxt:"Бұл есепке жауап бере алмайсың, келесіге өтесің.", skipYes:"Иә, өткізу", finished:"Барлық есеп аяқталды!",
     solvedList:"Шешілген есептер (шешімін дәптерден көрсет)", ansIs:"Жауап"
   }
 };
@@ -2548,20 +2629,44 @@ function renderExpr(src){
   return parts.join("");
 }
 
+
+/* ===== Звук (по умолчанию выключен), вибрация, очки ===== */
+let soundOn = store.get("bingo6v_snd")===true, AC=null;
+function sfx(k){
+  if(!soundOn) return;
+  try{
+    AC=AC||new (window.AudioContext||window.webkitAudioContext)();
+    const seq={ok:[[660,.08],[880,.12]],bad:[[220,.16],[150,.22]],win:[[523,.11],[659,.11],[784,.11],[1047,.34]],on:[[600,.06],[900,.08]]}[k]; let tt=AC.currentTime;
+    seq.forEach(([f,d])=>{ const o=AC.createOscillator(), g=AC.createGain(); o.type=(k==="bad")?"sawtooth":"square"; o.frequency.value=f;
+      g.gain.setValueAtTime(.05,tt); g.gain.exponentialRampToValueAtTime(.001,tt+d); o.connect(g); g.connect(AC.destination); o.start(tt); o.stop(tt+d); tt+=d; });
+  }catch(e){}
+}
+function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
+const lvOf = n => n<=20?1:(n<=50?2:3);
+function stats(){
+  let xp=0, streak=0; const tr=S.tried||{};
+  for(let n=1;n<=BANK.length;n++){ const v=tr[n]; if(v===undefined) continue;
+    if(v===null){ streak=0; continue; }
+    if(v===BANK[n-1].a){ streak++; xp+=10+Math.min(streak,5)*2; } else streak=0; }
+  xp+=50*S.marked.filter(Boolean).length+(S.b1?150:0)+(S.full?300:0);
+  return {xp,streak};
+}
+
 /* ===== Общий каркас ===== */
 function shell(inner, extraCls){
-  return `<div class="top"><h1>${t("title")}</h1>
+  return `<div class="top"><h1>${t("title")}</h1><button class="snd" data-snd aria-label="sound">${soundOn?"🔊":"🔇"}</button>
     </div>${inner}`;
 }
 function bindCommon(){
-  $app.querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>{ lang=b.dataset.lang; store.set(KEYL,lang); render(); });
+  $app.querySelectorAll("[data-snd]").forEach(b=>b.onclick=()=>{ soundOn=!soundOn; store.set("bingo6v_snd",soundOn); b.textContent=soundOn?"🔊":"🔇"; sfx("on"); });
 }
 
 /* ===== Экран 1: имя ===== */
 function viewName(){
-  $app.innerHTML = shell(`<div class="card"><label for="nm">${t("nameLabel")}</label>
+  $app.innerHTML = shell(`<div class="logo">${t("gameName")}</div><div class="logo-sub">${t("gameSub")}</div>
+    <div class="card"><label for="nm">${t("nameLabel")}</label>
     <input id="nm" class="text" type="text" maxlength="30" placeholder="${t("namePh")}" autocomplete="off">
-    <div style="height:14px"></div><button id="go" class="btn">${t("start")}</button></div>`);
+    <div style="height:14px"></div><button id="go" class="btn pulse">▶ ${t("press")}</button></div>`);
   bindCommon();
   const nm=document.getElementById("nm");
   const go=()=>{ const v=nm.value.trim(); if(!v){ nm.focus(); return; }
@@ -2609,14 +2714,15 @@ function bindModals(){
 /* ===== Экран 3: игра ===== */
 function viewPlay(){
   S.tried=S.tried||{}; if(!S.cur) S.cur=Math.max(0,...Object.keys(S.tried).map(Number))+1; const done=S.cur>BANK.length; const lines=allLines();
-  const marked=S.marked.filter(Boolean).length;
+  const marked=S.marked.filter(Boolean).length; const st=stats();
   const cells=S.cells.map((v,i)=>`<div class="cell locked ${S.marked[i]?"done":""} ${lines.has(i)?"line":""} ${ui.fresh===i?"fresh":""}">${mn(v)}</div>`).join("");
   const msg = S.cur>BANK.length?`<div class="msg ok">${t("finished")}</div>`:ui.msg?`<div class="msg ${ui.msg.k}">${ui.msg.t}</div>`:"";
-  const show = (v,ph)=> v===""?`<span style="color:#c0c5d6">${ph}</span>`:mn(v);
+  const show = (v,ph)=> v===""?`<span style="color:#6a63c9">${ph}</span>`:mn(v);
   let badges="";
   if(S.full) badges+=`<button id="sf" class="btn alt small" style="margin-bottom:8px">${t("showFull")}</button>`;
   if(S.b1) badges+=`<button id="sb" class="btn ghost small" style="margin-bottom:8px">${t("showBingo")}</button>`;
   $app.innerHTML = shell(`
+    <div class="hud"><span class="pill lv">${t("lv")} ${lvOf(Math.min(S.cur,BANK.length))}</span><span class="pill xp">⭐ ${st.xp} ${t("xp")}</span>${st.streak>1?`<span class="pill cb">🔥 x${st.streak}</span>`:""}</div>
     <div class="stat"><span class="you">${esc(S.name)}</span><span>${t("marked")}: ${marked}/9</span></div>
     <div class="bar"><i style="width:${Math.round(marked/9*100)}%"></i></div>
     <div class="grid" style="margin-bottom:12px">${cells}</div>
@@ -2664,7 +2770,7 @@ function confetti(){
   const old=document.getElementById("confetti"); if(old) old.remove();
   const c=document.createElement("canvas"); c.id="confetti"; document.body.appendChild(c);
   const W=c.width=innerWidth, H=c.height=innerHeight, g=c.getContext("2d");
-  const col=["#3b4fd8","#f28c1e","#ffffff","#ffd166","#6a78ee","#ef476f"];
+  const col=["#19e3ff","#ffcf33","#ffffff","#ff3d9a","#35f2a0","#8a6bff"];
   const P=Array.from({length:150},()=>({x:Math.random()*W,y:-20-Math.random()*H*.5,r:5+Math.random()*7,vx:-2+Math.random()*4,vy:2+Math.random()*4,a:Math.random()*6,va:-.2+Math.random()*.4,c:col[Math.floor(Math.random()*col.length)]}));
   const t0=performance.now();
   (function f(now){ const dt=now-t0; g.clearRect(0,0,W,H);
@@ -2688,18 +2794,21 @@ function submit(){
   ui.modal="send"; render();
 }
 function doSend(){
-  const n=S.cur, val=parseInt(ui.ans,10), task=BANK[n-1];
+  const n=S.cur, val=parseInt(ui.ans,10), task=BANK[n-1], xp0=stats().xp;
   ui.modal=null; ui.ans="";
   S.tried=S.tried||{}; S.tried[n]=val; S.cur=n+1; save();          // попытка израсходована, переход к следующей
-  if(val!==task.a){ ui.msg={k:"bad",t:t("wrong")}; render(); return; }
+  const gain=()=>" +"+(stats().xp-xp0)+" "+t("xp");
+  if(val!==task.a){ ui.msg={k:"bad",t:t("wrong")}; sfx("bad"); buzz([120,60,120]); render(); return; }
   const idx=S.cells.indexOf(val);
-  if(idx<0){ ui.msg={k:"warn",t:t("okNot")}; render(); return; }
-  if(S.marked[idx]){ ui.msg={k:"warn",t:t("okAlready")}; render(); return; }
+  if(idx<0){ ui.msg={k:"warn",t:t("okNot")+gain()}; sfx("ok"); render(); return; }
+  if(S.marked[idx]){ ui.msg={k:"warn",t:t("okAlready")+gain()}; sfx("ok"); render(); return; }
   S.marked[idx]=true; S.solved[n]=val; ui.fresh=idx;
   const now=Date.now(); let pop=null;
   if(!S.b1 && winLine()){ S.b1=now; pop="bingo"; }
   if(!S.full && S.marked.every(Boolean)){ S.full=now; pop="full"; }
-  save(); ui.msg={k:"ok",t:t("okMarked")}; if(pop){ ui.modal=pop; ui.confetti=true; } render();
+  save(); ui.msg={k:"ok",t:t("okMarked")+gain()}; buzz(60);
+  if(pop){ ui.modal=pop; ui.confetti=true; sfx("win"); buzz([80,40,80,40,200]); } else sfx("ok");
+  render();
 }
 function modalSkip(){ return `<div class="ov"><div class="modal"><h2>${t("skipQ")}</h2><div style="font-size:26px;font-weight:800;margin:6px 0">${t("taskNo")} ${S.cur}</div><p>${t("skipTxt")}</p>
   <button id="m-skip" class="btn alt">${t("skipYes")}</button><div style="height:10px"></div><button id="m-no" class="btn ghost">${t("cancel")}</button></div></div>`; }
@@ -2710,7 +2819,7 @@ function modalSend(){ return `<div class="ov"><div class="modal"><h2>${t("sendQ"
 /* ===== Режим учителя (экран для проектора) ===== */
 let TS = store.get(KEYT) || null;
 function newTeacher(order,url){
-  return {v:2, mode:"slides", slide:0, url:(url==null?"https://claude.ai/artifact/DRRBSwiGUoQW8PoGhW9een":url), order:order||"seq", queue:BANK.map((_,i)=>i+1), cur:null, shown:[], ans:false};
+  return {v:3, mode:"slides", slide:0, url:(url==null?"https://natiyev.github.io/bingo-6v/":url), order:order||"seq", queue:BANK.map((_,i)=>i+1), cur:null, shown:[], ans:false};
 }
 function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 function reorder(){ TS.queue = TS.order==="rnd" ? shuffle(TS.queue.slice()) : TS.queue.slice().sort((x,y)=>x-y); }
@@ -2768,7 +2877,7 @@ function slideHtml(i){
   }
 }
 function viewTeacher(){
-  if(!TS || TS.v!==2){ TS=newTeacher(); store.set(KEYT,TS); }
+  if(!TS || TS.v!==3){ TS=newTeacher(); store.set(KEYT,TS); }
   $app.classList.add("teacher");
   const saveT=()=>store.set(KEYT,TS);
   if(TS.mode==="slides"){
@@ -2792,8 +2901,9 @@ function viewTeacher(){
   const cur = TS.cur ? BANK[TS.cur-1] : null;
   let body;
   if(cur){
-    body=`<div class="t-task"><div class="t-num">№ ${TS.cur}</div><div class="t-expr">${renderExpr(cur.e)}&nbsp;=&nbsp;?</div>
-      ${TS.ans?`<div class="t-ans">${mn(cur.a)}</div>`:""}</div>`;
+    const el=Math.min(30,Math.max(0,(Date.now()-(TS.t0||Date.now()))/1000));
+    body=`<div class="t-task"><div class="t-lv">${t("lv")} ${lvOf(TS.cur)}</div><div class="t-num">№ ${TS.cur}</div><div class="t-expr">${renderExpr(cur.e)}&nbsp;=&nbsp;?</div>
+      ${TS.ans?`<div class="t-ans">${mn(cur.a)}</div>`:""}</div><div class="timer"><i style="animation-delay:-${el.toFixed(2)}s"></i></div>`;
   } else {
     body=`<div class="t-task"><div class="muted" style="font-size:26px">${TS.queue.length?t("tStart"):t("tEnd")}</div></div>`;
   }
@@ -2813,7 +2923,7 @@ function viewTeacher(){
   const ty=document.getElementById("m-ty"); if(ty) ty.onclick=()=>{ ui.modal=null; TS=newTeacher("seq",TS.url); TS.mode="tasks"; store.set(KEYT,TS); render(); };
   const tn=document.getElementById("m-no"); if(tn) tn.onclick=()=>{ ui.modal=null; render(); };
 }
-function nextTask(){ if(!TS.queue.length) return; TS.cur=TS.queue.shift(); TS.shown.push(TS.cur); TS.ans=false; store.set(KEYT,TS); render(); }
+function nextTask(){ if(!TS.queue.length) return; TS.cur=TS.queue.shift(); TS.shown.push(TS.cur); TS.ans=false; TS.t0=Date.now(); store.set(KEYT,TS); render(); }
 if(MODE==="teacher") document.addEventListener("keydown",e=>{
   if(!TS || e.target.tagName==="INPUT") return;
   const k=e.key;
